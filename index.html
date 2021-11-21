@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1">
 		<link rel="stylesheet" href="style.css">
         <script src="https://unpkg.com/vue@next" defer></script>
-        <script src="ondevicemotion.js" defer></script>
         <script src="script.js" defer></script>
 	</head>
 	<body>
@@ -26,25 +25,34 @@
             
             <transition name="fade" mode="out-in">
                 <div v-if="state == 'start'">
-                    <p key="jkljkjs">ELEVATION EXPERIENCES,<br>PERFECTED</p>
+                    <p>ELEVATION EXPERIENCES,<br>PERFECTED</p>
                     <button @click="startApp()">START YOUR EXPERIENCE NOW</button>
                 </div>
 
                 <div v-else-if="state == 'still'">
-                    <p key="asdkjfl">The elevator is still.</p>
+                    <p>Awaiting your elevation experience...</p>
                     <button v-if="!hasAccelerometer" @click="setState('up')">go up</button>
+                    <button v-if="!hasAccelerometer" @click="setState('down')">go up</button>
                 </div>
 
-                <div v-else-if="state == 'up' || state =='down'">
+                <div v-else-if="state == 'up'">
                     <transition name="slide" appear>
-                        <p key="image" v-if="state == 'up' || state =='down'">
+                        <p v-if="state == 'up'">
                             <img id="album" src="celtic-woman.jpg" alt="You Raise Me Up by Celtic Woman">
                         </p>
                     </transition>
                     <button v-if="!hasAccelerometer" @click="setState('still')">stop the elevator</button>
                 </div>
-            </transition>
 
+                <div v-else-if="state =='down'">
+                    <transition name="slide" appear>
+                        <p v-if="state =='down'">
+                            <img id="album" src="down.jpg" alt="Down by Jay Sean">
+                        </p>
+                    </transition>
+                    <button v-if="!hasAccelerometer" @click="setState('still')">stop the elevator</button>
+                </div>
+            </transition>
             
         </div>
 	</body>
