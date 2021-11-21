@@ -1,20 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap');
 
+:root {
+    --fade-length: 0.25s;
+}
+
 body {
   font-family: Shippori Antique;
-  background-color: black;
+  background: url('fashion-man-in-elevator.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
   text-align: center;
 }
 
-#logo {
-  display: grid;
-  grid-template-columns: 1fr 2px 1fr;
-  grid-gap: 20px;
-  height: 120px;
-  font-size: 20px;
-  letter-spacing: 20px;
+.fade-enter-active,
+.fade-leave-active {
+    transition: all var(--fade-length) ease;
 }
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+.slide-enter-active {
+    transition: all calc(3 * var(--fade-length)) ease;
+}
+
+.slide-enter-from {
+    transform: translateX(-100px);
+}
+
+#logo {
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr;
+    grid-gap: 20px;
+    height: 120px;
+    font-size: 20px;
+    letter-spacing: 20px;
+
+    /* because the logo's always on top, it sets the "start" of the vertical layout */
+    transition: margin-top 0.25s ease;
+    transition-delay: var(--fade-length);
+}
+
+#logo.start { margin-top: 150px; }
+#logo.still { margin-top: 200px; }
+#logo.up, #logo.down { margin-top: 100px; }
 
 #logo-left {
   text-align: right;
@@ -29,4 +62,8 @@ body {
 
 #logo-right {
     text-align: left;
+}
+
+#album {
+    position: relative;
 }

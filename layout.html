@@ -10,9 +10,8 @@
 	</head>
 	<body>
         <div id="app">
-            <p>{{ state }}</p>
-
-            <div id="logo">
+            <p>{{state}}</p>
+            <div id="logo" :class="state">
                 <div id="logo-left">
                     <p>I</p>
                     <p>NEED</p>
@@ -23,8 +22,29 @@
                     <p>RAISE</p>
                 </div>
             </div>
+            
+            <transition name="fade" mode="out-in">
+                <div v-if="state == 'start'">
+                    <p key="jkljkjs">ELEVATION EXPERIENCES,<br>PERFECTED</p>
+                    <button @click="setState('still')">START YOUR EXPERIENCE NOW</button>
+                </div>
 
-            <button>START YOUR EXPERIENCE NOW</button>
+                <div v-else-if="state == 'still'">
+                    <p key="asdkjfl">The elevator is still.</p>
+                    <button @click="setState('up')">go up</button>
+                </div>
+
+                <div v-else-if="state == 'up' || state =='down'">
+                    <transition name="slide" appear>
+                        <p key="image" v-if="state == 'up' || state =='down'">
+                            <img id="album" src="celtic-woman.jpg" alt="You Raise Me Up by Celtic Woman">
+                        </p>
+                    </transition>
+                    <button @click="setState('still')">stop the elevator</button>
+                </div>
+            </transition>
+
+            
         </div>
 	</body>
 </html>

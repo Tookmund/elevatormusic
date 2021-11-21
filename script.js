@@ -1,8 +1,13 @@
 const App = {
     data() {
         return {
-            'state': 'start'
+            state: 'start' // start, still, up, and down
         };
+    },
+    methods: {
+        setState(newState) {
+            this.state = newState;
+        }
     }
 };
 
