@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap');
+
+body {
+  font-family: Shippori Antique;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#logo {
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  grid-gap: 20px;
+  height: 120px;
+  font-size: 20px;
+  letter-spacing: 20px;
+}
+
+#logo-left {
+  text-align: right;
+  margin-right: -20px; /* counteracts letter-spacing */
+}
+
+#bar {
+  background-color: white;
+  height: 100%;
+  width: 2px;
+}
+
+#logo-right {
+    text-align: left;
+}

@@ -5,7 +5,26 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1">
 		<link rel="stylesheet" href="style.css">
+        <script src="https://unpkg.com/vue@next" defer></script>
+        <script src="script.js" defer></script>
 	</head>
 	<body>
+        <div id="app">
+            <p>{{ state }}</p>
+
+            <div id="logo">
+                <div id="logo-left">
+                    <p>I</p>
+                    <p>NEED</p>
+                </div>
+                <div id="bar"></div>
+                <div id="logo-right">
+                    <p>A</p>
+                    <p>RAISE</p>
+                </div>
+            </div>
+
+            <button>START YOUR EXPERIENCE NOW</button>
+        </div>
 	</body>
 </html>
