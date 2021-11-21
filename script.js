@@ -1,3 +1,5 @@
+var audio = new Audio('celtic-woman.wav');
+
 const App = {
     data() {
         return {
@@ -7,6 +9,12 @@ const App = {
     methods: {
         setState(newState) {
             this.state = newState;
+            if (this.state == 'up') {
+                audio.play();
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+            }
         }
     }
 };
