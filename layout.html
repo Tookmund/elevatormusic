@@ -25,18 +25,18 @@
             
             <transition name="fade" mode="out-in">
                 <div v-if="state == 'start'">
-                    <p key="jkljkjs">ELEVATION EXPERIENCES,<br>PERFECTED</p>
+                    <p>ELEVATION EXPERIENCES,<br>PERFECTED</p>
                     <button @click="startApp()">START YOUR EXPERIENCE NOW</button>
                 </div>
 
                 <div v-else-if="state == 'still'">
-                    <p key="asdkjfl">The elevator is still.</p>
+                    <p>Awaiting your elevation experience...</p>
                     <button v-if="!hasAccelerometer" @click="setState('up')">go up</button>
                 </div>
 
                 <div v-else-if="state == 'up' || state =='down'">
                     <transition name="slide" appear>
-                        <p key="image" v-if="state == 'up' || state =='down'">
+                        <p v-if="state == 'up' || state =='down'">
                             <img id="album" src="celtic-woman.jpg" alt="You Raise Me Up by Celtic Woman">
                         </p>
                     </transition>
