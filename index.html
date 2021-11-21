@@ -11,7 +11,6 @@
 	</head>
 	<body>
         <div id="app">
-            <p>{{state}}</p>
             <div id="logo" :class="state">
                 <div id="logo-left">
                     <p>I</p>
@@ -26,12 +25,12 @@
             
             <transition name="fade" mode="out-in">
                 <div v-if="state == 'start'">
-                    <p>ELEVATION EXPERIENCES,<br>PERFECTED</p>
+                    <p class="text">ELEVATION EXPERIENCES,<br>PERFECTED</p>
                     <button @click="startApp()">START YOUR EXPERIENCE NOW</button>
                 </div>
 
                 <div v-else-if="state == 'still'">
-                    <p>Awaiting your elevation experience...</p>
+                    <p class="text">Awaiting your elevation experience...</p>
                     <button v-if="!hasAccelerometer" @click="setState('up')">go up</button>
                     <button v-if="!hasAccelerometer" @click="setState('down')">go up</button>
                 </div>

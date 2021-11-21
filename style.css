@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Shippori+Antique&display=swap');
 
 :root {
     --fade-length: 0.25s;
@@ -11,6 +11,13 @@ body {
   background-size: cover;
   color: white;
   text-align: center;
+}
+
+.text {
+    font-family: DM Serif Display;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: rgb(247, 240, 201);
 }
 
 .fade-enter-active,
@@ -36,6 +43,8 @@ body {
     grid-template-columns: 1fr 2px 1fr;
     grid-gap: 20px;
     height: 120px;
+
+    font-family: ;
     font-size: 20px;
     letter-spacing: 20px;
 
@@ -65,4 +74,15 @@ body {
 
 #album {
     position: relative;
+}
+
+button {
+    background: none;
+    border: solid 2px white;
+    font-family: inherit;
+    border-radius: 0px;
+    color: white;
+    letter-spacing: 2px;
+    padding: 10px;
+    text-transform: uppercase;
 }
