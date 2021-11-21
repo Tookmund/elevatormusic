@@ -1,7 +1,8 @@
 var accel = 0;
 var prevaccel = 0;
+var time = 0;
 
-state = 0
+state = 0;
 // Not moving, up, down
 var audio = [null, new Audio(), new Audio()];
 
@@ -37,6 +38,8 @@ function getMotion(event) {
 			accel = 0;
 		}
 	}
+	time += event.interval;
+	if (time > 500) accel = 0;
 }
 
 // Device Motion request must come from a user-generated event
