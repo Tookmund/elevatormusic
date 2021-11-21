@@ -1,4 +1,5 @@
-var audio = new Audio('celtic-woman.wav');
+var celticWoman = new Audio('celtic-woman.wav');
+var down = new Audio('down.wav');
 
 const App = {
     data() {
@@ -10,11 +11,19 @@ const App = {
     methods: {
         setState(newState) {
             this.state = newState;
+
             if (this.state == 'up') {
-                audio.play();
+                celticWoman.play();
             } else {
-                audio.pause();
-                audio.currentTime = 0;
+                celticWoman.pause();
+                celticWoman.currentTime = 0;
+            }
+
+            if (this.state == 'down') {
+                down.play();
+            } else {
+                down.pause();
+                down.currentTime = 0;
             }
         },
 

@@ -32,12 +32,22 @@
                 <div v-else-if="state == 'still'">
                     <p>Awaiting your elevation experience...</p>
                     <button v-if="!hasAccelerometer" @click="setState('up')">go up</button>
+                    <button v-if="!hasAccelerometer" @click="setState('down')">go up</button>
                 </div>
 
-                <div v-else-if="state == 'up' || state =='down'">
+                <div v-else-if="state == 'up'">
                     <transition name="slide" appear>
-                        <p v-if="state == 'up' || state =='down'">
+                        <p v-if="state == 'up'">
                             <img id="album" src="celtic-woman.jpg" alt="You Raise Me Up by Celtic Woman">
+                        </p>
+                    </transition>
+                    <button v-if="!hasAccelerometer" @click="setState('still')">stop the elevator</button>
+                </div>
+
+                <div v-else-if="state =='down'">
+                    <transition name="slide" appear>
+                        <p v-if="state =='down'">
+                            <img id="album" src="down.jpg" alt="Down by Jay Sean">
                         </p>
                     </transition>
                     <button v-if="!hasAccelerometer" @click="setState('still')">stop the elevator</button>
