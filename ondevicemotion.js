@@ -4,7 +4,7 @@ var time = 0;
 
 function getMotion(event) {
 	// We only care about Z here, that's the screen
-	var z = event.acceleration.z;
+	var z = event.acceleration.y;
 
 	// Ignore random gaussian noise
 	if (Math.abs(z) < 0.5) return;
