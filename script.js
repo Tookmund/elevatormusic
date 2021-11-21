@@ -3,7 +3,8 @@ var audio = new Audio('celtic-woman.wav');
 const App = {
     data() {
         return {
-            state: 'start' // start, still, up, and down
+            state: 'start', // start, still, up, and down
+            hasAccelerometer: true
         };
     },
     methods: {
@@ -15,8 +16,13 @@ const App = {
                 audio.pause();
                 audio.currentTime = 0;
             }
+        },
+
+        startApp() {
+            this.setState('still');
+            requestMotion();
         }
     }
 };
 
-Vue.createApp(App).mount('#app');
+var elevatorApp = Vue.createApp(App).mount('#app');
