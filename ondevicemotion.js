@@ -1,6 +1,10 @@
 var accel = 0;
 var prevaccel = 0;
 
+state = 0
+// Not moving, up, down
+var audio = [null, new Audio(), new Audio()];
+
 function getMotion(event) {
 	// We only care about Z here, that's the screen
 	var z = event.acceleration.z;
@@ -16,14 +20,19 @@ function getMotion(event) {
 			// Up is negative, down is positive?
 			if (accel < 0) {
 				docstate.innerHTML = "Going Up!";
+				state = 1;
 			}
-			if (accel > 0) {
+			else if (accel > 0) {
 				docstate.innerHTML = "Going Down!";
+				state = 2;
 			}
+			audio[state].play();
 			prevaccel = accel;
 			accel = 0;
 		} else if ((prevaccel < 0 && accel > 0) || (prevaccel > 0 && accel < 0)) {
 			docstate.innerHTML = "";
+			audio[state].pause();
+			state = 0;
 			prevaccel = 0;
 			accel = 0;
 		}
